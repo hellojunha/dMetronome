@@ -7,3 +7,5 @@ It is an only metronome for Android Wear.
 
 Set BPM with slider, and set accurate BPM with buttons.
 After setting BPM, start metronome. Then, your watch will vibrate in the BPM.
+
+And also this is the first open-source project of [Digutsoft](http://www.digutsoft.com) and I'm not very good at using Git, so there can be lots of mistakes in Git. If you find them, please notice me! :D
