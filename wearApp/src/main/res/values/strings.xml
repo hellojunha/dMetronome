@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">dMetronome</string>
+    <string name="tempo_zero">0 bpm can\'t be exist!</string>
+    <string name="metronome_start">Start</string>
+    <string name="metronome_stop">Stop</string>
+    <string name="notification_running">dMetronome is running. (%d bpm)</string>
+
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">dMetronome</string>
+    <string name="tempo_zero">0 bpm은 존재할 수 없습니다!</string>
+    <string name="metronome_start">시작</string>
+    <string name="metronome_stop">정지</string>
+    <string name="notification_running">dMetronome가 실행중입니다. (%d bpm)</string>
+
+</resources>

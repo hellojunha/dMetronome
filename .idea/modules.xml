@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/dMetronome.iml" filepath="$PROJECT_DIR$/dMetronome.iml" />
+      <module fileurl="file://$PROJECT_DIR$/handheldApp/handheldApp.iml" filepath="$PROJECT_DIR$/handheldApp/handheldApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wearApp/wearApp.iml" filepath="$PROJECT_DIR$/wearApp/wearApp.iml" />
+    </modules>
+  </component>
+</project>
+

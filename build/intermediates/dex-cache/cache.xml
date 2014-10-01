@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/Users/joona0825/Workspace/Digutsoft/Android/DigutMetronome/app/build/intermediates/pre-dexed/debug/classes-35e22e0c672fb0ae7f1e4a5ec7fb34e56c577285.jar"
+        jar="/Users/joona0825/Workspace/Digutsoft/Android/DigutMetronome/app/build/intermediates/exploded-aar/com.android.support/support-v13/20.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e128103d5281ddd26195a7f980b36d0d005a4e56"/>
+    <item
+        dex="/Users/joona0825/Workspace/Digutsoft/Android/DigutMetronome/app/build/intermediates/pre-dexed/debug/classes-841e5f60f9c5a2338aad717fb08fc2c7dbc3fdca.jar"
+        jar="/Users/joona0825/Workspace/Digutsoft/Android/DigutMetronome/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0"/>
+    <item
+        dex="/Users/joona0825/Workspace/Digutsoft/Android/DigutMetronome/app/build/intermediates/pre-dexed/debug/classes-9af0df712a811fa5ea178b781bb0e14fdc6492a3.jar"
+        jar="/Users/joona0825/Workspace/Digutsoft/Android/DigutMetronome/app/build/intermediates/exploded-aar/com.google.android.support/wearable/1.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="6804efbb78d7facc2e1aa107c7342bee83afae45"/>
+    <item
+        dex="/Users/joona0825/Workspace/Digutsoft/Android/DigutMetronome/app/build/intermediates/pre-dexed/debug/classes-ec87f61b058aa4f7c3e81a89dac29eb0083c3084.jar"
+        jar="/Users/joona0825/Workspace/Digutsoft/Android/DigutMetronome/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/5.0.77/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="80a6f6f2d0dfcfae8c424cf81dcdf7157e7bf4b8"/>
+    <item
+        dex="/Users/joona0825/Workspace/Digutsoft/Android/DigutMetronome/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-bca9cd8c8082330ef7549e0398af852faae531fd.jar"
+        jar="/Applications/Android Studio.app/sdk/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
+    <item
+        dex="/Users/joona0825/Workspace/Digutsoft/Android/DigutMetronome/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-d5f6d1fdb4380c12dcd0e65c49e1621d2a361433.jar"
+        jar="/Users/joona0825/Workspace/Digutsoft/Android/DigutMetronome/app/build/intermediates/exploded-aar/com.android.support/support-v13/20.0.0/libs/internal_impl-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="27bbd3982cdfe4468a9bf99c8c773734a9049e33"/>
+    <item
+        dex="/Users/joona0825/Workspace/Digutsoft/Android/DigutMetronome/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-8e99411a3ee8fd328f879c9cbddced351cebb577.jar"
+        jar="/Users/joona0825/Workspace/Digutsoft/Android/DigutMetronome/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/libs/internal_impl-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d"/>
+
+</pre-dex-items>
