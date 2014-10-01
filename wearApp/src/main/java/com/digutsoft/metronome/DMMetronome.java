@@ -4,7 +4,7 @@
  * http://www.digutsoft.com/
  *
  * This file is part of dMetronome and it was originally from android-metronome.
- * Visit http://www.digutsoft.com/apps/product.php?p=metronome to know more about dMetronome,
+ * Visit http://www.digutsoft.com/apps/product.php?id=metronome to know more about dMetronome,
  * and Google android-metronome to know more about original code.
  *
  * dMetronome is free software: you can redistribute it and/or modify

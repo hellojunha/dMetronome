@@ -1,4 +1,4 @@
-##[dMetronome](http://www.digutsoft.com/apps/product.php?p=metronome)
+##[dMetronome](http://www.digutsoft.com/apps/product.php?id=metronome)
 ==========
 dMetronome is developed by Digutsoft and DMMetronome.java file is a copy of [android-metronome](https://code.google.com/p/android-metronome/source/browse/trunk/src/org/coolfrood/mytronome/TickPlayer.java).
 

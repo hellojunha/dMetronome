@@ -4,7 +4,7 @@
  * http://www.digutsoft.com/
  *
  * This file is part of dMetronome.
- * Visit http://www.digutsoft.com/apps/product.php?p=metronome to know more.
+ * Visit http://www.digutsoft.com/apps/product.php?id=metronome to know more.
  *
  * dMetronome is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
