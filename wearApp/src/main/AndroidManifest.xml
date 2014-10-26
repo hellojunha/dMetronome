@@ -12,11 +12,12 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.DeviceDefault.Light" >
         <activity
-            android:name=".DMMain"
-            android:label="@string/app_name"
+            android:name=".DMAMain"
+            android:label="@string/label"
             android:launchMode="singleTask" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

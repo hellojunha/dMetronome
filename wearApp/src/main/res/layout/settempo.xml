@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.wearable.view.BoxInsetLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bilBackground"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <SeekBar
+                android:id="@+id/sbTempo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="8"
+                android:max="200" />
+
+            <TextView
+                android:id="@+id/tvTempo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <android.support.wearable.view.CircledImageView
+                android:id="@+id/btMinus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:src="@drawable/ic_minus"
+                app:circle_radius="30dp"
+                app:circle_radius_pressed="30dp" />
+
+            <android.support.wearable.view.CircledImageView
+                android:id="@+id/btStart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:src="@drawable/ic_start"
+                app:circle_color="@color/green"
+                app:circle_radius="30dp"
+                app:circle_radius_pressed="30dp" />
+
+            <android.support.wearable.view.CircledImageView
+                android:id="@+id/btPlus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:src="@drawable/ic_plus"
+                app:circle_radius="30dp"
+                app:circle_radius_pressed="30dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.wearable.view.BoxInsetLayout>

@@ -21,72 +21,86 @@
 
 package com.digutsoft.metronome;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Vibrator;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class DMMetronome {
+public class DMCMetronome {
 
-    static boolean mRunning = false;
+    private static final int MSG = 1;
+    protected static boolean mRunning = false;
+
     Vibrator mVibrator;
-    LinearLayout llBackground;
-    TextView tvTempo;
-    Drawable mDefaultBackground;
-    int mCount = 0;
-    int mPeriod = 4;
-    long mTickDuration;
+    SharedPreferences mSharedPreferences;
 
-    public DMMetronome(Vibrator vibrator, LinearLayout llBackground, TextView tvTempo) {
+    View mBackground;
+    TextView mTvTempo;
+    Drawable mDefaultBackground;
+
+    int mCount = 0;
+    int mPeriod;
+    long mTickDuration;
+    boolean isFlashEnabled;
+
+    public DMCMetronome(Context context, Vibrator vibrator, View view) {
         mVibrator = vibrator;
-        this.llBackground = llBackground;
-        this.tvTempo = tvTempo;
-        mDefaultBackground = llBackground.getBackground();
+        mBackground = view;
+        mTvTempo = (TextView) view.findViewById(R.id.tvTempo);
+        mDefaultBackground = view.getBackground();
+        mSharedPreferences = context.getSharedPreferences("dMetronome", 0);
     }
 
-    public void onStart(int ticksPerSec) {
+    public void startTick(int ticksPerSec) {
         mRunning = true;
         mCount = 0;
-        tvTempo.setText(Integer.toString(1));
+        isFlashEnabled = mSharedPreferences.getBoolean("flash", true);
+        mPeriod = mSharedPreferences.getInt("count", 4);
+        mTvTempo.setText(Integer.toString(1));
         mTickDuration = 60000 / ticksPerSec;
-        run();
+        tick();
     }
 
-    private void run() {
+    private void tick() {
         if (!mRunning) return;
 
         if ((mPeriod != 1) && (mCount % mPeriod == 0)) {
             mCount = 0;
-            llBackground.setBackgroundColor(Color.parseColor("#000000"));
-            tvTempo.setTextColor(Color.parseColor("#ffffff"));
-            mVibrator.vibrate(100);
+            if (isFlashEnabled) {
+                mBackground.setBackgroundColor(Color.parseColor("#000000"));
+                mTvTempo.setTextColor(Color.parseColor("#ffffff"));
+            }
+            mVibrator.vibrate(200);
         } else {
-            llBackground.setBackground(mDefaultBackground);
-            tvTempo.setTextColor(Color.parseColor("#000000"));
-            mVibrator.vibrate(50);
+            if (isFlashEnabled) {
+                mBackground.setBackground(mDefaultBackground);
+                mTvTempo.setTextColor(Color.parseColor("#000000"));
+            }
+            mVibrator.vibrate(100);
         }
 
         mHandler.sendMessageDelayed(mHandler.obtainMessage(MSG), mTickDuration);
     }
 
-    public void onStop() {
+    public void stopTick() {
         mRunning = false;
         mCount = 0;
-        llBackground.setBackground(mDefaultBackground);
-        tvTempo.setTextColor(Color.parseColor("#000000"));
+        mBackground.setBackground(mDefaultBackground);
+        mTvTempo.setTextColor(Color.parseColor("#000000"));
         mHandler.removeMessages(MSG);
     }
-
-    private static final int MSG = 1;
 
     private Handler mHandler = new Handler() {
         public void handleMessage(Message message) {
             mCount++;
-            run();
-            tvTempo.setText(Integer.toString(mCount + 1));
+            tick();
+            mTvTempo.setText(Integer.toString(mCount + 1));
         }
     };
 }

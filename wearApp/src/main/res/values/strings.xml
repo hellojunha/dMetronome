@@ -2,9 +2,16 @@
 <resources>
 
     <string name="app_name">dMetronome</string>
+    <string name="label">Metronome</string>
     <string name="tempo_zero">0 bpm can\'t be exist!</string>
     <string name="metronome_start">Start</string>
     <string name="metronome_stop">Stop</string>
     <string name="notification_running">dMetronome is running. (%d bpm)</string>
+
+    <string name="pref">Preferences</string>
+    <string name="pref_splash">Flash screen</string>
+    <string name="pref_splash_enabled">Enabled</string>
+    <string name="pref_splash_disabled">Disabled</string>
+    <string name="pref_count">Counts</string>
 
 </resources>

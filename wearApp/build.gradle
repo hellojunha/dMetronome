@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 
-
 android {
     compileSdkVersion 20
     buildToolsVersion "20.0.0"
@@ -9,8 +8,8 @@ android {
         applicationId "com.digutsoft.metronome"
         minSdkVersion 20
         targetSdkVersion 20
-        versionCode 1410
-        versionName "14.10"
+        versionCode 14104
+        versionName "14.10.4 NJ26gWR"
     }
     buildTypes {
         release {
