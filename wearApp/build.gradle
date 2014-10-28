@@ -8,8 +8,8 @@ android {
         applicationId "com.digutsoft.metronome"
         minSdkVersion 20
         targetSdkVersion 20
-        versionCode 14105
-        versionName "14.10.5 NJ28bWR"
+        versionCode 14106
+        versionName "14.10.6 NJ28cWR"
     }
     buildTypes {
         release {
