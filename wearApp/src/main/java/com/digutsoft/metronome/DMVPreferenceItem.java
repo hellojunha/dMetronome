@@ -1,17 +1,21 @@
 /*
- * Copyright (C) 2014 The Android Open Source Project
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Copyright (c) 2014 Digutsoft.
+ * http://www.digutsoft.com/
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ * This file is part of dMetronome.
+ * Visit http://www.digutsoft.com/apps/product.php?id=metronome to know more.
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * dMetronome is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * It is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
  */
 
 package com.digutsoft.metronome;
@@ -32,10 +36,6 @@ public class DMVPreferenceItem extends LinearLayout implements WearableListView.
     private float mScale;
     private TextView mPrefTitle;
     private TextView mPrefSubTitle;
-
-    public DMVPreferenceItem(Context context) {
-        this(context, null);
-    }
 
     public DMVPreferenceItem(Context context, AttributeSet attrs) {
         this(context, attrs, 0);

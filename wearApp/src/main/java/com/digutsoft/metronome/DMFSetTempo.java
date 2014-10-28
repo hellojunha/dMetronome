@@ -25,6 +25,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PowerManager;
 import android.os.Vibrator;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
@@ -45,6 +46,8 @@ public class DMFSetTempo extends Fragment {
     NotificationCompat.Builder notificationBuilder;
     NotificationManagerCompat notificationManager;
     int mTempo;
+    Context mContext;
+    PowerManager.WakeLock wakeLock;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -56,9 +59,11 @@ public class DMFSetTempo extends Fragment {
         final CircledImageView btPlus = (CircledImageView) rootView.findViewById(R.id.btPlus);
         final CircledImageView btMinus = (CircledImageView) rootView.findViewById(R.id.btMinus);
 
+        mContext = getActivity().getApplicationContext();
+
         setTempo(80);
 
-        Intent viewIntent = new Intent(getActivity(), DMFSetTempo.class);
+        Intent viewIntent = new Intent(getActivity(), DMAMain.class);
         PendingIntent viewPendingIntent = PendingIntent.getActivity(getActivity(), 0, viewIntent, 0);
 
         notificationBuilder = new NotificationCompat.Builder(getActivity())
@@ -68,8 +73,11 @@ public class DMFSetTempo extends Fragment {
 
         notificationManager = NotificationManagerCompat.from(getActivity());
 
-        Vibrator vibrator = (Vibrator) getActivity().getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
+        Vibrator vibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
         metronome = new DMCMetronome(getActivity(), vibrator, rootView.findViewById(R.id.bilBackground));
+
+        PowerManager powerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
+        wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, getString(R.string.app_name));
 
         sbTempo.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -104,6 +112,8 @@ public class DMFSetTempo extends Fragment {
                     btPlus.setVisibility(View.VISIBLE);
                     btMinus.setVisibility(View.VISIBLE);
 
+                    wakeLock.release();
+
                     notificationManager.cancel(1);
                 } else {
                     metronome.startTick(mTempo);
@@ -113,6 +123,8 @@ public class DMFSetTempo extends Fragment {
                     btStart.setCircleColor(getResources().getColor(R.color.red));
                     btPlus.setVisibility(View.GONE);
                     btMinus.setVisibility(View.GONE);
+
+                    wakeLock.acquire();
 
                     notificationBuilder.setContentText(String.format(getString(R.string.notification_running), mTempo));
                     notificationManager.notify(1, notificationBuilder.build());
@@ -140,6 +152,7 @@ public class DMFSetTempo extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         metronome.stopTick();
+        if(wakeLock.isHeld()) wakeLock.release();
         notificationManager.cancel(1);
     }
 
