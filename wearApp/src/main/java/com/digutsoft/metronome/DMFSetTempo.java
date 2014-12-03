@@ -67,6 +67,7 @@ public class DMFSetTempo extends Fragment {
         PendingIntent viewPendingIntent = PendingIntent.getActivity(getActivity(), 0, viewIntent, 0);
 
         notificationBuilder = new NotificationCompat.Builder(getActivity())
+                .setOngoing(true)
                 .setSmallIcon(R.drawable.ic_launcher)
                 .setContentTitle(getString(R.string.app_name))
                 .setContentIntent(viewPendingIntent);

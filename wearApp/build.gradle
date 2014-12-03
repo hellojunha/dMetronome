@@ -2,19 +2,19 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 20
-    buildToolsVersion "20.0.0"
+    buildToolsVersion "21.1"
 
     defaultConfig {
         applicationId "com.digutsoft.metronome"
         minSdkVersion 20
         targetSdkVersion 20
-        versionCode 14106
-        versionName "14.10.6 NJ28cWR"
+        versionCode 14107
+        versionName "14.10.7 NL03aWC"
     }
     buildTypes {
         release {
-            runProguard false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            runProguard false
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
