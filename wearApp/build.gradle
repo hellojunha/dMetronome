@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 20
-    buildToolsVersion "21.1"
+    buildToolsVersion "21.1.1"
 
     defaultConfig {
         applicationId "com.digutsoft.metronome"
         minSdkVersion 20
         targetSdkVersion 20
         versionCode 14107
-        versionName "14.10.7 NL03aWC"
+        versionName "14.10.7 NL05aWC"
     }
     buildTypes {
         release {
