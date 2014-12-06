@@ -9,7 +9,7 @@ android {
         minSdkVersion 20
         targetSdkVersion 20
         versionCode 14107
-        versionName "14.10.7 NL05aWC"
+        versionName "14.10.7 NL05aWR"
     }
     buildTypes {
         release {
