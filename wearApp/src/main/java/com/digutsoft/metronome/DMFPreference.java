@@ -54,6 +54,7 @@ public class DMFPreference extends Fragment {
         }
 
         WearableListView prefListView = (WearableListView) rootView.findViewById(R.id.wlPreferenceList);
+        prefListView.setGreedyTouchMode(true);
         prefListView.setAdapter(new DMCPrefListViewAdapter(mContext));
         prefListView.setClickListener(new WearableListView.ClickListener() {
             @Override
