@@ -10,8 +10,9 @@
 
     <string name="pref">Preferences</string>
     <string name="pref_splash">Flash screen</string>
-    <string name="pref_splash_enabled">Enabled</string>
-    <string name="pref_splash_disabled">Disabled</string>
     <string name="pref_count">Counts</string>
+    <string name="pref_always_on">Always on</string>
+    <string name="pref_enabled">Enabled</string>
+    <string name="pref_disabled">Disabled</string>
 
 </resources>

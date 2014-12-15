@@ -42,15 +42,21 @@ public class DMFPreference extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.preference, container, false);
 
-        final Context mContext = getActivity().getApplicationContext();
+        final Context mContext = getActivity();
         sharedPreferences = mContext.getSharedPreferences("dMetronome", 0);
 
         alPrefItem.add(new PreferenceItem(R.string.pref_count, Integer.toString(sharedPreferences.getInt("count", 4))));
 
-        if(sharedPreferences.getBoolean("flash", true)) {
-            alPrefItem.add(new PreferenceItem(R.string.pref_splash, R.string.pref_splash_enabled));
+        if (sharedPreferences.getBoolean("flash", true)) {
+            alPrefItem.add(new PreferenceItem(R.string.pref_splash, R.string.pref_enabled));
         } else {
-            alPrefItem.add(new PreferenceItem(R.string.pref_splash, R.string.pref_splash_disabled));
+            alPrefItem.add(new PreferenceItem(R.string.pref_splash, R.string.pref_disabled));
+        }
+
+        if (sharedPreferences.getBoolean("alwaysOn", false)) {
+            alPrefItem.add(new PreferenceItem(R.string.pref_always_on, R.string.pref_enabled));
+        } else {
+            alPrefItem.add(new PreferenceItem(R.string.pref_always_on, R.string.pref_disabled));
         }
 
         WearableListView prefListView = (WearableListView) rootView.findViewById(R.id.wlPreferenceList);
@@ -59,18 +65,22 @@ public class DMFPreference extends Fragment {
         prefListView.setClickListener(new WearableListView.ClickListener() {
             @Override
             public void onClick(WearableListView.ViewHolder viewHolder) {
-                switch(Integer.parseInt(viewHolder.itemView.getTag().toString())) {
+                switch (Integer.parseInt(viewHolder.itemView.getTag().toString())) {
                     case 0:
                         prefChangeCount(viewHolder);
                         break;
                     case 1:
                         prefChangeFlashStatus(viewHolder);
                         break;
+                    case 2:
+                        prefChangeAlwaysOnStatus(viewHolder);
+                        break;
                 }
             }
 
             @Override
-            public void onTopEmptyRegionClick() {}
+            public void onTopEmptyRegionClick() {
+            }
         });
 
         return rootView;
@@ -79,23 +89,34 @@ public class DMFPreference extends Fragment {
     private void prefChangeFlashStatus(WearableListView.ViewHolder viewHolder) {
         boolean currentSetting = sharedPreferences.getBoolean("flash", true);
         sharedPreferences.edit().putBoolean("flash", !currentSetting).apply();
-        TextView tvPrefSubTitle = (TextView)viewHolder.itemView.findViewById(R.id.tvPreferenceSubTitle);
-        if(currentSetting) {
-            tvPrefSubTitle.setText(R.string.pref_splash_disabled);
+        TextView tvPrefSubTitle = (TextView) viewHolder.itemView.findViewById(R.id.tvPreferenceSubTitle);
+        if (currentSetting) {
+            tvPrefSubTitle.setText(R.string.pref_disabled);
         } else {
-            tvPrefSubTitle.setText(R.string.pref_splash_enabled);
+            tvPrefSubTitle.setText(R.string.pref_enabled);
         }
     }
 
     private void prefChangeCount(WearableListView.ViewHolder viewHolder) {
         int currentSetting = sharedPreferences.getInt("count", 4);
         currentSetting++;
-        if(currentSetting > 8) {
+        if (currentSetting > 8) {
             currentSetting = 1;
         }
         sharedPreferences.edit().putInt("count", currentSetting).apply();
-        TextView tvPrefSubTitle = (TextView)viewHolder.itemView.findViewById(R.id.tvPreferenceSubTitle);
+        TextView tvPrefSubTitle = (TextView) viewHolder.itemView.findViewById(R.id.tvPreferenceSubTitle);
         tvPrefSubTitle.setText(Integer.toString(currentSetting));
+    }
+
+    private void prefChangeAlwaysOnStatus(WearableListView.ViewHolder viewHolder) {
+        boolean currentSetting = sharedPreferences.getBoolean("alwaysOn", false);
+        sharedPreferences.edit().putBoolean("alwaysOn", !currentSetting).apply();
+        TextView tvPrefSubTitle = (TextView) viewHolder.itemView.findViewById(R.id.tvPreferenceSubTitle);
+        if (currentSetting) {
+            tvPrefSubTitle.setText(R.string.pref_disabled);
+        } else {
+            tvPrefSubTitle.setText(R.string.pref_enabled);
+        }
     }
 
     private class PreferenceItem {
@@ -139,7 +160,7 @@ public class DMFPreference extends Fragment {
 
         @Override
         public int getItemCount() {
-            return 2;
+            return 3;
         }
     }
 }

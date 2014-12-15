@@ -10,8 +10,9 @@
 
     <string name="pref">설정</string>
     <string name="pref_splash">화면 깜빡이기</string>
-    <string name="pref_splash_enabled">켜짐</string>
-    <string name="pref_splash_disabled">꺼짐</string>
     <string name="pref_count">카운트 수</string>
+    <string name="pref_always_on">화면 켜기</string>
+    <string name="pref_enabled">켜짐</string>
+    <string name="pref_disabled">꺼짐</string>
 
 </resources>

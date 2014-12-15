@@ -20,6 +20,7 @@
 
 package com.digutsoft.metronome;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -33,6 +34,7 @@ import android.support.wearable.view.CircledImageView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -153,7 +155,8 @@ public class DMFSetTempo extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         metronome.stopTick();
-        if(wakeLock.isHeld()) wakeLock.release();
+        if (wakeLock.isHeld()) wakeLock.release();
+        ((Activity) mContext).getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         notificationManager.cancel(1);
     }
 

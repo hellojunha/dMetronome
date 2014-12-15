@@ -21,6 +21,7 @@
 
 package com.digutsoft.metronome;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -29,6 +30,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.Vibrator;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -47,9 +49,12 @@ public class DMCMetronome {
     int mCount = 0;
     int mPeriod;
     long mTickDuration;
-    boolean isFlashEnabled;
+    boolean isFlashEnabled, alwaysOnStatus;
+
+    Context mContext;
 
     public DMCMetronome(Context context, Vibrator vibrator, View view) {
+        mContext = context;
         mVibrator = vibrator;
         mBackground = view;
         mTvTempo = (TextView) view.findViewById(R.id.tvTempo);
@@ -60,9 +65,15 @@ public class DMCMetronome {
     public void startTick(int ticksPerSec) {
         mRunning = true;
         mCount = 0;
-        isFlashEnabled = mSharedPreferences.getBoolean("flash", true);
         mPeriod = mSharedPreferences.getInt("count", 4);
+        isFlashEnabled = mSharedPreferences.getBoolean("flash", true);
+        alwaysOnStatus = mSharedPreferences.getBoolean("alwaysOn", false);
         mTvTempo.setText(Integer.toString(1));
+
+        if (alwaysOnStatus) {
+            ((Activity) mContext).getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        }
+
         mTickDuration = 60000 / ticksPerSec;
         tick();
     }
@@ -94,6 +105,10 @@ public class DMCMetronome {
         mBackground.setBackground(mDefaultBackground);
         mTvTempo.setTextColor(Color.parseColor("#000000"));
         mHandler.removeMessages(MSG);
+
+        if (alwaysOnStatus) {
+            ((Activity) mContext).getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        }
     }
 
     private Handler mHandler = new Handler() {
