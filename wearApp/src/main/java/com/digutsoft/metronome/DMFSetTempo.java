@@ -156,7 +156,7 @@ public class DMFSetTempo extends Fragment {
         super.onDestroy();
         metronome.stopTick();
         if (wakeLock.isHeld()) wakeLock.release();
-        ((Activity) mContext).getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         notificationManager.cancel(1);
     }
 
