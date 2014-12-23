@@ -2,3 +2,8 @@
 /local.properties
 /.idea/workspace.xml
 .DS_Store
+.idea/
+build/
+dMetronome.iml
+handheldApp/manifest-merger-release-report.txt
+handheldApp/wearApp-release.apk
