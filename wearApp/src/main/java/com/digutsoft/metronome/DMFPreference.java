@@ -100,7 +100,7 @@ public class DMFPreference extends Fragment {
     private void prefChangeCount(WearableListView.ViewHolder viewHolder) {
         int currentSetting = sharedPreferences.getInt("count", 4);
         currentSetting++;
-        if (currentSetting > 8) {
+        if (currentSetting > 12) {
             currentSetting = 1;
         }
         sharedPreferences.edit().putInt("count", currentSetting).apply();

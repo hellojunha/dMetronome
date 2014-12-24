@@ -9,7 +9,7 @@ android {
         minSdkVersion 20
         targetSdkVersion 21
         versionCode 14108
-        versionName "14.10.8 NL24aWD"
+        versionName "14.10.8 NL24bWR"
     }
     buildTypes {
         release {
