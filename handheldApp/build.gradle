@@ -1,25 +1,19 @@
-apply plugin: 'com.android.application'
+apply plugin: "com.android.application"
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "21.1.1"
+    buildToolsVersion "21.1.2"
 
     defaultConfig {
         applicationId "com.digutsoft.metronome"
         minSdkVersion 18
         targetSdkVersion 21
-        versionCode 14108
-        versionName "14.10.8 NL24aMR"
-    }
-    buildTypes {
-        release {
-//            runProguard false
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
+        versionCode 14109
+        versionName "14.10.9 OB16aMC"
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    wearApp project(':wearApp')
+    compile fileTree(dir: "libs", include: ["*.jar"])
+    wearApp project(":wearApp")
 }
