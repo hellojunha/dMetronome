@@ -25,6 +25,7 @@ import android.app.Fragment;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.Vibrator;
@@ -50,6 +51,7 @@ public class DMFSetTempo extends Fragment {
     int mTempo;
     Context mContext;
     PowerManager.WakeLock wakeLock;
+    SharedPreferences sharedPreferences;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -63,7 +65,10 @@ public class DMFSetTempo extends Fragment {
 
         mContext = getActivity().getApplicationContext();
 
-        setTempo(80);
+        final Context mContext = getActivity();
+        sharedPreferences = mContext.getSharedPreferences("dMetronome", 0);
+        int defaultTempo = sharedPreferences.getInt("tempo", 80);
+        setTempo(defaultTempo);
 
         Intent viewIntent = new Intent(getActivity(), DMAMain.class);
         PendingIntent viewPendingIntent = PendingIntent.getActivity(getActivity(), 0, viewIntent, 0);
@@ -131,6 +136,8 @@ public class DMFSetTempo extends Fragment {
 
                     notificationBuilder.setContentText(String.format(getString(R.string.notification_running), mTempo));
                     notificationManager.notify(1, notificationBuilder.build());
+
+                    sharedPreferences.edit().putInt("tempo", mTempo).apply();
                 }
             }
         });
