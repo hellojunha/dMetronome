@@ -15,4 +15,6 @@
     <string name="pref_enabled">Enabled</string>
     <string name="pref_disabled">Disabled</string>
 
+    <string name="start_tap_tempo">Start tap tempo\nby tapping button</string>
+
 </resources>

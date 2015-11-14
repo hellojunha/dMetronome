@@ -32,23 +32,38 @@ public class DMCGridPagerAdapter extends FragmentGridPagerAdapter {
 
     @Override
     public int getRowCount() {
-        return 1;
-    }
-
-    @Override
-    public int getColumnCount(int i) {
         return 2;
     }
 
     @Override
-    public Fragment getFragment(int row, int col) {
-        switch(col) {
+    public int getColumnCount(int i) {
+        switch (i) {
             case 0:
-                return new DMFSetTempo();
+                return 2;
             case 1:
-                return new DMFPreference();
+                return 1;
+            default:
+                return 0;
+        }
+    }
+
+    @Override
+    public Fragment getFragment(int row, int col) {
+        switch(row) {
+            case 0:
+                switch(col) {
+                    case 0:
+                        return new DMFSetTempo();
+                    case 1:
+                        return new DMFPreference();
+                    default:
+                        return null;
+                }
+            case 1:
+                return new DMFTapTempo();
             default:
                 return null;
         }
     }
+
 }
