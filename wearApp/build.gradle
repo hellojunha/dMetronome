@@ -8,13 +8,13 @@ android {
         applicationId "com.digutsoft.metronome"
         minSdkVersion 20
         targetSdkVersion 23
-        versionCode 15111
-        versionName "15.11.1 OK14bWR"
+        versionCode 15112
+        versionName "15.11.2 PF07aWR"
     }
 }
 
 dependencies {
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.google.android.support:wearable:1.0.0"
-    compile "com.google.android.gms:play-services-wearable:8.3.0"
+    compile "com.google.android.gms:play-services-wearable:9.0.2"
 }
