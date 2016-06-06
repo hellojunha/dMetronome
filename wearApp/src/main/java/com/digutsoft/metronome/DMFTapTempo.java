@@ -62,7 +62,7 @@ public class DMFTapTempo extends Fragment {
                     isTapTempoStarted = true;
                     tvTempo.setText("0");
                     s = System.currentTimeMillis();
-                    if(trBlink != null) trBlink.interrupt();
+                    if (trBlink != null) trBlink.interrupt();
                     btStop.setVisibility(View.VISIBLE);
                     return;
                 }
@@ -80,6 +80,7 @@ public class DMFTapTempo extends Fragment {
             @Override
             public void onClick(View v) {
                 stop();
+                trBlink.start();
             }
         });
 
@@ -126,10 +127,12 @@ public class DMFTapTempo extends Fragment {
                             }
                         });
                         break;
+                    } catch (NullPointerException e) {
+                        e.printStackTrace();
+                        break;
                     }
                 }
             }
         });
-        trBlink.start();
     }
 }
