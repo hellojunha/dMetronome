@@ -1,15 +1,15 @@
 apply plugin: "com.android.application"
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "21.1.2"
+    compileSdkVersion 24
+    buildToolsVersion "24.0.3"
 
     defaultConfig {
         applicationId "com.digutsoft.metronome"
         minSdkVersion 18
-        targetSdkVersion 23
-        versionCode 15112
-        versionName "15.11.2 PF07aMR"
+        targetSdkVersion 24
+        versionCode 15113
+        versionName "15.11.3 PK29aM"
     }
 }
 
