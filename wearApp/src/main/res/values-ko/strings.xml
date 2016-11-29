@@ -16,5 +16,6 @@
     <string name="pref_disabled">꺼짐</string>
 
     <string name="start_tap_tempo">버튼을 클릭하여\nTap Tempo를 실행하세요</string>
+    <string name="to_finish_tap_tempo">버튼을 길게 클릭하면 Tap Tempo가 종료됩니다.</string>
 
 </resources>

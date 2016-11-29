@@ -16,5 +16,6 @@
     <string name="pref_disabled">Disabled</string>
 
     <string name="start_tap_tempo">Start tap tempo\nby tapping button</string>
+    <string name="to_finish_tap_tempo">Long press the button to finish tap tempo.</string>
 
 </resources>

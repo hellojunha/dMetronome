@@ -24,18 +24,22 @@ import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.support.v4.content.ContextCompat;
 import android.support.wearable.view.CircledImageView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class DMFTapTempo extends Fragment {
 
     private TextView tvTempo;
-    private CircledImageView btStop;
 
     private Thread trBlink;
+
+    private CircledImageView btTempo;
 
     private long s, sum;
     private int count;
@@ -43,13 +47,10 @@ public class DMFTapTempo extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         View rootView = inflater.inflate(R.layout.taptempo, container, false);
 
         tvTempo = (TextView) rootView.findViewById(R.id.tvTempo);
-        btStop = (CircledImageView) rootView.findViewById(R.id.btStop);
-
-        CircledImageView btTempo = (CircledImageView) rootView.findViewById(R.id.btTempo);
+        btTempo = (CircledImageView) rootView.findViewById(R.id.btTempo);
 
         final Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
 
@@ -60,10 +61,11 @@ public class DMFTapTempo extends Fragment {
 
                 if (!isTapTempoStarted) {
                     isTapTempoStarted = true;
+                    btTempo.setImageResource(R.drawable.ic_tick);
+                    Toast.makeText(getActivity(), R.string.to_finish_tap_tempo, Toast.LENGTH_SHORT).show();
                     tvTempo.setText("0");
                     s = System.currentTimeMillis();
                     if (trBlink != null) trBlink.interrupt();
-                    btStop.setVisibility(View.VISIBLE);
                     return;
                 }
 
@@ -76,11 +78,25 @@ public class DMFTapTempo extends Fragment {
             }
         });
 
-        btStop.setOnClickListener(new View.OnClickListener() {
+        btTempo.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if(motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+                    btTempo.setCircleColor(ContextCompat.getColor(getActivity(), R.color.deep_green));
+                } else if(motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                    btTempo.setCircleColor(ContextCompat.getColor(getActivity(), R.color.green));
+                }
+                return false;
+            }
+        });
+
+        btTempo.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                if(!isTapTempoStarted) return false;
                 stop();
                 trBlink.start();
+                return true;
             }
         });
 
@@ -102,7 +118,7 @@ public class DMFTapTempo extends Fragment {
     protected void stop() {
         isTapTempoStarted = false;
         s = sum = count = 0;
-        btStop.setVisibility(View.GONE);
+        btTempo.setImageResource(R.drawable.ic_start);
 
         trBlink = new Thread(new Runnable() {
             @Override
